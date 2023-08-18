@@ -1,41 +1,61 @@
-// Importe as funções que você precisa do SDK do Firebase
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-
-// Sua configuração do Firebase
+// Configuração do Firebase
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
-  authDomain: "SEU_DOMÍNIO.firebaseapp.com",
-  projectId: "SEU_ID_DO_PROJETO",
-  storageBucket: "SEU_ID_DO_PROJETO.appspot.com",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SEU_APP_ID",
-  databaseURL: "SEU_URL_DO_BANCO_DE_DADOS" // Adicione esta linha
-};
-
-// Inicialize o Firebase
-const app = initializeApp(firebaseConfig);
-
-// Referência para o Firestore
-const db = getFirestore(app);
-
-document.getElementById("agendamento-form").addEventListener("submit", async function(event) {
-    event.preventDefault();
-
-    const nome = document.getElementById("nome").value;
-    const horario = document.getElementById("horario").value;
-
-    try {
-        // Adicione um documento à coleção "agendamentos"
-        const docRef = await addDoc(collection(db, "agendamentos"), {
-            nome: nome,
-            horario: horario
-        });
-        
-        console.log("Agendamento realizado com sucesso, ID do documento:", docRef.id);
-        alert("Agendamento realizado com sucesso!");
-    } catch (error) {
-        console.error("Erro ao agendar:", error);
-        alert("Erro ao agendar. Tente novamente.");
+    apiKey: "SUA_API_KEY",
+    authDomain: "SEU_DOMÍNIO.firebaseapp.com",
+    projectId: "SEU_ID_DO_PROJETO",
+    storageBucket: "SEU_ID_DO_PROJETO.appspot.com",
+    messagingSenderId: "SEU_SENDER_ID",
+    appId: "SEU_APP_ID"
+  };
+  
+  // Inicializa o Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // Referências para o Firebase Authentication e Firestore
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  
+  // Botão de login
+  const loginButton = document.getElementById("login-button");
+  loginButton.addEventListener("click", () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then(() => {
+        console.log("Usuário logado com sucesso!");
+        updateUI();
+      })
+      .catch(error => {
+        console.error("Erro ao fazer login:", error);
+      });
+  });
+  
+  // Botão de logout
+  const logoutButton = document.getElementById("logout-button");
+  logoutButton.addEventListener("click", () => {
+    auth.signOut()
+      .then(() => {
+        console.log("Usuário deslogado com sucesso!");
+        updateUI();
+      })
+      .catch(error => {
+        console.error("Erro ao fazer logout:", error);
+      });
+  });
+  
+  // Atualiza a interface com base no estado de autenticação
+  function updateUI() {
+    const user = auth.currentUser;
+    if (user) {
+      loginButton.style.display = "none";
+      logoutButton.style.display = "block";
+    } else {
+      loginButton.style.display = "block";
+      logoutButton.style.display = "none";
     }
-});
+  }
+  
+  // Lógica de agendamento (similar ao código anterior)
+  document.getElementById("agendamento-form").addEventListener("submit", async function(event) {
+    // ... Lógica de agendamento ...
+  });
+  
