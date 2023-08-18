@@ -5,21 +5,34 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Agendamento</h1>
-    
-    <!-- Botão de login do Google -->
-    <button id="login-button">Login com Google</button>
-    
-    <!-- Botão de logout -->
-    <button id="logout-button" style="display: none;">Logout</button>
-    
-    <form id="agendamento-form">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" required><br>
-        <label for="horario">Horário:</label>
-        <input type="text" id="horario" required><br>
-        <button type="submit">Agendar</button>
-    </form>
+    <header>
+        <h1>Agendamento</h1>
+        <img src="canoahavaiana.jpg" alt="Canoa Havaiana">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#horarios">Horários</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <section id="horarios">
+        <h2>Horários Disponíveis</h2>
+        <!-- Aqui você pode listar os horários disponíveis -->
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <ul class="contact-list">
+            <li><i class="fa fa-instagram"></i> @teste123</li>
+            <li><i class="fa fa-envelope"></i> teste123@teste123.com</li>
+            <li><i class="fa fa-phone"></i> 71 99999999</li>
+            <li><i class="fa fa-map-marker"></i> Farol de Itapuã, Salvador, Bahia, Brasil</li>
+        </ul>
+        <!-- Aqui você pode adicionar o mapa -->
+        <div id="map"></div>
+    </section>
 
     <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
