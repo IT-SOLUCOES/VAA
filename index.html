@@ -19,8 +19,26 @@
 
     <section id="horarios">
         <h2>Horários Disponíveis</h2>
-        
-        <!-- Horários e vagas ... -->
+
+        <!-- Horários e vagas -->
+        <div class="horario">
+            <h3>Terça a Domingo</h3>
+            <ul class="horario-lista">
+                <li><button class="agendar" data-dia="Terça" data-horario="5:30">5:30</button></li>
+                <li><button class="agendar" data-dia="Terça" data-horario="6:30">6:30</button></li>
+                <li><button class="agendar" data-dia="Terça" data-horario="7:30">7:30</button></li>
+                <li><button class="agendar" data-dia="Terça" data-horario="8:30">8:30</button></li>
+                <li><button class="agendar" data-dia="Terça" data-horario="9:30">9:30</button></li>
+            </ul>
+        </div>
+
+        <!-- Repita a mesma estrutura para os outros dias -->
+        <div class="horario">
+            <h3>Terça a Domingo</h3>
+            <ul class="horario-lista">
+                <!-- ... adicione os horários ... -->
+            </ul>
+        </div>
     </section>
 
     <section id="contato">
@@ -34,6 +52,25 @@
         <!-- Mini mapa e outras informações de contato ... -->
     </section>
 
-    <!-- ... restante do código ... -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Agendar Horário</h2>
+            <form id="agendamento-form">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" required>
+                <input type="hidden" id="dia-agendado" value="">
+                <input type="hidden" id="horario-agendado" value="">
+                <button type="submit">Agendar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

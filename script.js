@@ -59,3 +59,13 @@ const firebaseConfig = {
     // ... Lógica de agendamento ...
   });
   
+  // Abrir o modal e preencher o dia e horário agendado
+document.querySelectorAll(".agendar").forEach(button => {
+    button.addEventListener("click", function () {
+        const dia = this.getAttribute("data-dia");
+        const horario = this.getAttribute("data-horario");
+        document.getElementById("dia-agendado").value = dia;
+        document.getElementById("horario-agendado").value = horario;
+        openModal();
+    });
+});
