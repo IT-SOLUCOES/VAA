@@ -1,14 +1,18 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+/* ... estilos anteriores ... */
 
 header {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 header h1 {
@@ -16,49 +20,4 @@ header h1 {
     margin: 0;
 }
 
-header img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    background-color: #444;
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    padding: 10px;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-}
-
-section {
-    padding: 30px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-}
-
-.contact-list li {
-    margin-bottom: 10px;
-}
-
-#map {
-    width: 100%;
-    height: 300px;
-    margin-top: 20px;
-}
+/* ... restante dos estilos ... */
